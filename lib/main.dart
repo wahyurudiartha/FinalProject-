@@ -66,7 +66,53 @@ class MyApp extends StatelessWidget {
                 );
               },
             ),
-            Container(
+            GestureDetector(
+              child: Container(
+                  width: 10,
+                  height: 130,
+                  padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                  child: Card(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset("assets/samsul.jpg"),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(
+                                    "SAMSUNG 24SF350",
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 15),
+                                  ),
+                                  Text(
+                                    "22 Inch || 144Hz",
+                                  ),
+                                  Text(
+                                    "Rp.2.100.000",
+                                    style: TextStyle(
+                                        fontSize: 13,
+                                        color: Colors.orange[900]),
+                                  ),
+                                ])
+                          ],
+                        ),
+                      ],
+                    ),
+                  )),
+              onTap: () {
+                Navigator.of(context).push(
+                  new MaterialPageRoute(builder: (context) {
+                    return DetailProdukSamsung();
+                  }),
+                );
+              },
+            ),
+            GestureDetector(
+              child: Container(
                 width: 10,
                 height: 130,
                 padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
@@ -74,92 +120,74 @@ class MyApp extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Image.asset("assets/samsul.jpg"),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                Text(
-                                  "SAMSUNG 24SF350",
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 15),
-                                ),
-                                Text(
-                                  "22 Inch || 144Hz",
-                                ),
-                                Text(
-                                  "Rp.2.100.000",
-                                  style: TextStyle(
-                                      fontSize: 13, color: Colors.orange[900]),
-                                ),
-                              ])
-                        ],
-                      ),
+                      Image.asset("assets/rog.jpg"),
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "ROG Strix XG248",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                            Text(
+                              "24 Inch || 240Hz",
+                            ),
+                            Text(
+                              "Rp.4.000.000",
+                              style: TextStyle(
+                                  fontSize: 13, color: Colors.orange[900]),
+                            ),
+                          ]),
                     ],
                   ),
-                )),
-            Container(
-              width: 10,
-              height: 130,
-              padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: Card(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/rog.jpg"),
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "ROG Strix XG248",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
-                          ),
-                          Text(
-                            "24 Inch || 240Hz",
-                          ),
-                          Text(
-                            "Rp.4.000.000",
-                            style: TextStyle(
-                                fontSize: 13, color: Colors.orange[900]),
-                          ),
-                        ]),
-                  ],
                 ),
               ),
+              onTap: () {
+                Navigator.of(context).push(
+                  new MaterialPageRoute(builder: (context) {
+                    return DetailProdukRog();
+                  }),
+                );
+              },
             ),
-            Container(
-              width: 10,
-              height: 130,
-              padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
-              child: Card(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset("assets/acer.jpg"),
-                    Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Text(
-                            "Acer Predator XB241H",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold, fontSize: 15),
-                          ),
-                          Text(
-                            "24 Inch || 240Hz",
-                          ),
-                          Text(
-                            "Rp.4.100.000",
-                            style: TextStyle(
-                                fontSize: 13, color: Colors.orange[900]),
-                          ),
-                        ]),
-                  ],
+            GestureDetector(
+              child: Container(
+                width: 10,
+                height: 130,
+                padding: EdgeInsets.fromLTRB(20, 10, 20, 10),
+                child: Card(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset("assets/acer.jpg"),
+                      Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "Acer Predator XB241H",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 15),
+                            ),
+                            Text(
+                              "24 Inch || 240Hz",
+                            ),
+                            Text(
+                              "Rp.4.500.000",
+                              style: TextStyle(
+                                  fontSize: 13, color: Colors.orange[900]),
+                            ),
+                          ]),
+                    ],
+                  ),
                 ),
               ),
+              onTap: () {
+                Navigator.of(context).push(
+                  new MaterialPageRoute(builder: (context) {
+                    return DetailProdukAcer();
+                  }),
+                );
+              },
             ),
           ],
         ),
