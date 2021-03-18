@@ -17,11 +17,20 @@ class drawer extends StatelessWidget {
                 ),
               ),
             ),
-            decoration: BoxDecoration(color: Colors.blue[900]),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                  image: NetworkImage(
+                      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjcsZJpVAdCeJyhLjDRjOBLZDn9FlZbInkKjeonkYe_2emHI5ig4pZ4inpYxqcRJc70RQ&usqp=CAU"),
+                  fit: BoxFit.cover),
+            ),
           ),
           ListTile(
             title: Text("Setting"),
             trailing: Icon(Icons.settings),
+          ),
+          ListTile(
+            title: Text("Notifications"),
+            trailing: Icon(Icons.notifications),
           ),
           ListTile(
             title: Text("Log Out"),

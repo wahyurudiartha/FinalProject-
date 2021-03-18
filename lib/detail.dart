@@ -7,7 +7,7 @@ class DetailProduk extends StatelessWidget {
       appBar: new AppBar(
           title: new Text("LG 26MK400"), actions: [new Icon(Icons.search)]),
       body: new Container(
-        color: Colors.blue[400],
+        color: Colors.blue[300],
         child: Container(
           child: Column(
             children: [
@@ -303,6 +303,83 @@ class DetailProdukAcer extends StatelessWidget {
                           Text("Response Time : 1ms (Gray to Gray)"),
                           Text("3-Years PT Acer Indonesia"),
                           Text("VESA wall-mounted"),
+                        ]),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class DetailProdukMsi extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: new AppBar(
+          title: new Text("MSI Optix PAG241CR"),
+          actions: [new Icon(Icons.search)]),
+      body: new Container(
+        color: Colors.blue[400],
+        child: Container(
+          child: Column(
+            children: [
+              Image.asset("assets/msi.jpg"),
+              Container(
+                color: Colors.yellow[700],
+                padding:
+                    EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      "Rp.4.600.000",
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red[600],
+                          fontSize: 20),
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Text(
+                          "9",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.red[600],
+                              fontSize: 20),
+                        ),
+                        Icon(
+                          Icons.star,
+                          size: 20,
+                          color: Colors.deepOrange,
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding:
+                    EdgeInsets.only(left: 20, top: 10, bottom: 10, right: 20),
+                child: Row(
+                  children: <Widget>[
+                    Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text("Features : ",
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: (17))),
+                          Text("Aspect Ratio 16:9"),
+                          Text("Resolution 1920 x 1080"),
+                          Text("Refresh Rate 240Hz"),
+                          Text("Yes, MSI Anti-Flicker"),
+                          Text("NVIDIA GSYNC"),
+                          Text("Color Gamut 91% DCI-P3, 125% sRGB"),
+                          Text("AMD FreeSync"),
+                          Text("Response Time : 1ms (Gray to Gray)"),
                         ]),
                   ],
                 ),

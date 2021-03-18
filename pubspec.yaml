@@ -51,6 +51,10 @@ flutter:
     - assets/rog.jpg
     - assets/3x4 fix.jpg
     - assets/acer.jpg
+    - assets/dashboard.jpg
+    - assets/Banner.jpg
+    - assets/msi.jpg
+    - assets/logo.png
      
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
