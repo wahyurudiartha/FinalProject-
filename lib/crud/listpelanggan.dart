@@ -83,30 +83,32 @@ class _ListPelangganState extends State<ListPelanggan> {
                 itemCount: _listPelanggan.length,
                 itemBuilder: (context, index) {
                   Pelanggan pelanggan = _listPelanggan[index];
-                  return ListTile(
-                    leading: Icon(
-                      Icons.person,
-                      size: 60,
-                    ),
-                    title: Text(pelanggan.nama),
-                    subtitle: Text("No Hp: " + pelanggan.nohp),
-                    onTap: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => UpdatePelanggan(
-                                pelanggan: pelanggan,
-                              )),
-                    ).then((value) => getListPelanggan()),
-                    trailing: Material(
-                      child: InkWell(
-                        onTap: () {
-                          deletePelanggan(pelanggan.id);
-                        },
-                        child: Padding(
-                          padding: EdgeInsets.all(8),
-                          child: Icon(
-                            Icons.delete,
-                            color: Colors.grey[700],
+                  return Card(
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        backgroundColor: Colors.lightBlue[600],
+                        child: Icon(Icons.person, color: Colors.white),
+                      ),
+                      title: Text(pelanggan.nama),
+                      subtitle: Text("No Hp: " + pelanggan.nohp),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => UpdatePelanggan(
+                                  pelanggan: pelanggan,
+                                )),
+                      ).then((value) => getListPelanggan()),
+                      trailing: Material(
+                        child: InkWell(
+                          onTap: () {
+                            deletePelanggan(pelanggan.id);
+                          },
+                          child: Padding(
+                            padding: EdgeInsets.all(8),
+                            child: Icon(
+                              Icons.delete,
+                              color: Colors.grey[700],
+                            ),
                           ),
                         ),
                       ),
