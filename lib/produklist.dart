@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1/detail.dart';
+import './detail.dart';
 
 class ProdukList extends StatefulWidget {
   @override

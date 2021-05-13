@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:tugas1/about.dart';
-import 'package:tugas1/produklist.dart';
-import 'package:tugas1/setting.dart';
+import 'package:tugas2/crud/listpelanggan.dart';
+import './about.dart';
+import './produklist.dart';
+import './setting.dart';
+import './ui/home.dart';
 import "./drawer.dart" as drawer;
 
 class Dashboard extends StatefulWidget {
@@ -22,7 +24,7 @@ class _DashboardState extends State<Dashboard> {
             child: Column(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.only(bottom: 10, top: 10),
+                  //padding: EdgeInsets.only(bottom: 10, top: 10),
                   child: Image(
                     image: AssetImage("assets/Banner.jpg"),
                   ),
@@ -46,12 +48,15 @@ class _DashboardState extends State<Dashboard> {
                               children: <Widget>[
                                 Column(
                                   children: <Widget>[
-                                    new Icon(Icons.shopping_bag_outlined),
+                                    new Icon(Icons.shopping_bag_outlined,
+                                        size: 35),
                                   ],
                                 ),
                                 Column(
                                   children: <Widget>[
-                                    Text("Product"),
+                                    Padding(
+                                        padding: EdgeInsets.only(bottom: 5)),
+                                    Text("Produk"),
                                   ],
                                 ),
                               ],
@@ -77,12 +82,14 @@ class _DashboardState extends State<Dashboard> {
                               children: <Widget>[
                                 Column(
                                   children: <Widget>[
-                                    new Icon(Icons.settings),
+                                    new Icon(Icons.settings, size: 35),
                                   ],
                                 ),
                                 Column(
                                   children: <Widget>[
-                                    Text("Setting"),
+                                    Padding(
+                                        padding: EdgeInsets.only(bottom: 5)),
+                                    Text("Pengaturan"),
                                   ],
                                 ),
                               ],
@@ -108,12 +115,49 @@ class _DashboardState extends State<Dashboard> {
                               children: <Widget>[
                                 Column(
                                   children: <Widget>[
-                                    new Icon(Icons.help_outline_outlined),
+                                    new Icon(Icons.format_list_bulleted,
+                                        size: 35),
                                   ],
                                 ),
                                 Column(
                                   children: <Widget>[
-                                    Text("About"),
+                                    Padding(
+                                        padding: EdgeInsets.only(bottom: 5)),
+                                    Text("Pelanggan"),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        onTap: () {
+                          Navigator.of(context).push(
+                            new MaterialPageRoute(builder: (context) {
+                              return ListPelanggan();
+                            }),
+                          );
+                        },
+                      ),
+                      GestureDetector(
+                        child: Container(
+                          width: 90,
+                          height: 90,
+                          //color: Colors.red,
+                          child: Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Column(
+                                  children: <Widget>[
+                                    new Icon(Icons.help_outline_outlined,
+                                        size: 35),
+                                  ],
+                                ),
+                                Column(
+                                  children: <Widget>[
+                                    Padding(
+                                        padding: EdgeInsets.only(bottom: 5)),
+                                    Text("Tentang"),
                                   ],
                                 ),
                               ],
