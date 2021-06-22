@@ -19,7 +19,7 @@ class _UpdatePelangganState extends State<UpdatePelanggan> {
   var _controllerAlamat = TextEditingController();
 
   void addTambahPelanggan() async {
-    var url = 'http://192.168.1.5/db_mobile/update_pelanggan.php';
+    var url = 'http://192.168.1.2/db_mobile/update_pelanggan.php';
     var response = await http.post(url, body: {
       'id': widget.pelanggan.id,
       'nohp': _controllerNohp.text,

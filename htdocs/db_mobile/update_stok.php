@@ -3,15 +3,13 @@
 include 'connection.php';
 
 $id = $_POST['id'];
-$nama = $_POST['nama'];
-$nohp = $_POST['nohp'];
-$alamat = $_POST['alamat'];
+$namabarang = $_POST['namabarang'];
+$stok = $_POST['stok'];
 
-$sql = "UPDATE pelanggan set 
+$sql = "UPDATE stok set 
         
-        nama='$nama', 
-        nohp='$nohp', 
-        alamat='$alamat' WHERE id='$id'";
+        namabarang='$namabarang', 
+        stok='$stok'WHERE id='$id'"; 
        
 $result = $connect->query($sql);
 

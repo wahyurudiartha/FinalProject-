@@ -1,28 +1,28 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:tugas2/crud/tambahpelanggan.dart';
-import 'package:tugas2/crud/pelanggan.dart';
-import 'package:tugas2/crud/updatepelanggan.dart';
+import 'package:tugas2/crud/tambahstok.dart';
+import 'package:tugas2/crud/stok.dart';
+import 'package:tugas2/crud/updatestok.dart';
 
-class ListPelanggan extends StatefulWidget {
+class ListStok extends StatefulWidget {
   @override
-  _ListPelangganState createState() => _ListPelangganState();
+  _ListStokState createState() => _ListStokState();
 }
 
-class _ListPelangganState extends State<ListPelanggan> {
-  List<Pelanggan> _listPelanggan = [];
+class _ListStokState extends State<ListStok> {
+  List<Stok> _listStok = [];
 
-  void getListPelanggan() async {
-    _listPelanggan.clear();
-    String url = 'http://192.168.1.2/db_mobile/get_list_Pelanggan.php';
+  void getListStok() async {
+    _listStok.clear();
+    String url = 'http://192.168.1.2/db_mobile/get_list_stok.php';
     var response = await http.get(url);
     if (response.statusCode == 200) {
       var responseBody = json.decode(response.body);
       if (responseBody['succes']) {
         List listData = responseBody['data'];
-        listData.forEach((itemPelanggan) {
-          _listPelanggan.add(Pelanggan.fromMap(itemPelanggan));
+        listData.forEach((itemStok) {
+          _listStok.add(Stok.fromMap(itemStok));
         });
       } else {}
     } else {
@@ -31,8 +31,8 @@ class _ListPelangganState extends State<ListPelanggan> {
     setState(() {});
   }
 
-  void deletePelanggan(String id) async {
-    var url = 'http://192.168.1.2/db_mobile/delete_Pelanggan.php';
+  void deleteStok(String id) async {
+    var url = 'http://192.168.1.2/db_mobile/delete_Stok.php';
     var response = await http.post(
       url,
       body: {'id': id},
@@ -47,12 +47,12 @@ class _ListPelangganState extends State<ListPelanggan> {
     } else {
       print('Request Eror');
     }
-    getListPelanggan();
+    getListStok();
   }
 
   @override
   void initState() {
-    getListPelanggan();
+    getListStok();
     super.initState();
   }
 
@@ -60,12 +60,12 @@ class _ListPelangganState extends State<ListPelanggan> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('List Pelanggan'),
+          title: Text('Stok'),
           actions: [
             IconButton(
                 icon: Icon(Icons.refresh),
                 onPressed: () {
-                  getListPelanggan();
+                  getListStok();
                 })
           ],
         ),
@@ -74,34 +74,34 @@ class _ListPelangganState extends State<ListPelanggan> {
           onPressed: () {
             Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => TambahPelanggan()),
-            ).then((value) => getListPelanggan());
+              MaterialPageRoute(builder: (context) => TambahStok()),
+            ).then((value) => getListStok());
           },
         ),
-        body: _listPelanggan.length > 0
+        body: _listStok.length > 0
             ? ListView.builder(
-                itemCount: _listPelanggan.length,
+                itemCount: _listStok.length,
                 itemBuilder: (context, index) {
-                  Pelanggan pelanggan = _listPelanggan[index];
+                  Stok stok = _listStok[index];
                   return Card(
                     child: ListTile(
                       leading: CircleAvatar(
                         backgroundColor: Colors.lightBlue[600],
-                        child: Icon(Icons.person, color: Colors.white),
+                        child: Icon(Icons.monitor, color: Colors.white),
                       ),
-                      title: Text(pelanggan.nama),
-                      subtitle: Text("No Hp: " + pelanggan.nohp),
+                      title: Text(stok.namabarang),
+                      subtitle: Text("Stok " + stok.stok),
                       onTap: () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => UpdatePelanggan(
-                                  pelanggan: pelanggan,
+                            builder: (context) => UpdateStok(
+                                  stok: stok,
                                 )),
-                      ).then((value) => getListPelanggan()),
+                      ).then((value) => getListStok()),
                       trailing: Material(
                         child: InkWell(
                           onTap: () {
-                            deletePelanggan(pelanggan.id);
+                            deleteStok(stok.id);
                           },
                           child: Padding(
                             padding: EdgeInsets.all(8),

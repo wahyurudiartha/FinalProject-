@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tugas2/crud/listpelanggan.dart';
+import 'package:tugas2/crud/liststok.dart';
 import './about.dart';
 import './produklist.dart';
 import './setting.dart';
@@ -149,7 +150,7 @@ class _DashboardState extends State<Dashboard> {
                               children: <Widget>[
                                 Column(
                                   children: <Widget>[
-                                    new Icon(Icons.help_outline_outlined,
+                                    new Icon(Icons.signal_cellular_alt_sharp,
                                         size: 35),
                                   ],
                                 ),
@@ -157,7 +158,7 @@ class _DashboardState extends State<Dashboard> {
                                   children: <Widget>[
                                     Padding(
                                         padding: EdgeInsets.only(bottom: 5)),
-                                    Text("Tentang"),
+                                    Text("Stok"),
                                   ],
                                 ),
                               ],
@@ -167,7 +168,7 @@ class _DashboardState extends State<Dashboard> {
                         onTap: () {
                           Navigator.of(context).push(
                             new MaterialPageRoute(builder: (context) {
-                              return About();
+                              return ListStok();
                             }),
                           );
                         },

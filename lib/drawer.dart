@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tugas2/about.dart';
 
 class drawer extends StatelessWidget {
   @override
@@ -31,6 +32,19 @@ class drawer extends StatelessWidget {
           ListTile(
             title: Text("Notifications"),
             trailing: Icon(Icons.notifications),
+          ),
+          GestureDetector(
+            child: ListTile(
+              title: Text("Tentang"),
+              trailing: Icon(Icons.help),
+            ),
+            onTap: () {
+              Navigator.of(context).push(
+                new MaterialPageRoute(builder: (context) {
+                  return About();
+                }),
+              );
+            },
           ),
           ListTile(
             title: Text("Log Out"),

@@ -2,17 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class TambahPelanggan extends StatelessWidget {
-  var _controllerNohp = TextEditingController();
-  var _controllerNama = TextEditingController();
-  var _controllerAlamat = TextEditingController();
+class TambahStok extends StatelessWidget {
+  var _controllerNamabarang = TextEditingController();
+  var _controllerStok = TextEditingController();
 
-  void addTambahPelanggan() async {
-    var url = 'http://192.168.1.2/db_mobile/add_pelanggan.php';
+  void addTambahStok() async {
+    var url = 'http://192.168.1.2/db_mobile/add_stok.php';
     var response = await http.post(url, body: {
-      'nohp': _controllerNohp.text,
-      'nama': _controllerNama.text,
-      'alamat': _controllerAlamat.text,
+      'namabarang': _controllerNamabarang.text,
+      'stok': _controllerStok.text,
     });
     if (response.statusCode == 200) {
       var responseBody = json.decode(response.body);
@@ -30,7 +28,7 @@ class TambahPelanggan extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Input Data Pelanggan'),
+        title: Text('Input Data Stok Barang'),
       ),
       body: ListView(
         padding: EdgeInsets.all(16),
@@ -38,34 +36,25 @@ class TambahPelanggan extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: TextFormField(
-              controller: _controllerNama,
+              controller: _controllerNamabarang,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: 'Nama Pelanggan'),
+                  border: OutlineInputBorder(), labelText: 'Nama Barang'),
             ),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 10),
             child: TextFormField(
-              controller: _controllerNohp,
+              controller: _controllerStok,
               keyboardType: TextInputType.text,
               decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: 'Nomor HP'),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 10),
-            child: TextFormField(
-              controller: _controllerAlamat,
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                  border: OutlineInputBorder(), labelText: 'Alamat'),
+                  border: OutlineInputBorder(), labelText: 'Stok'),
             ),
           ),
           SizedBox(height: 8),
           RaisedButton(
             onPressed: () {
-              addTambahPelanggan();
+              addTambahStok();
             },
             child: Text(
               'Simpan Data',

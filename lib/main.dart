@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import "./dashboard.dart" as dashboard;
+import "./login/login.dart" as login;
 
 void main() {
   runApp(new MaterialApp(
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: Container(
-        child: dashboard.Dashboard(),
+        child: login.Login(),
       ),
     );
   }
